@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Table</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #d4fc79, #96e6a1);
+    text-align: center; padding: 20px;
+    animation: fade 1.5s ease;
+}
+h1 {
+    color: white; background: #154360;
+    padding: 15px; border-radius: 10px;
+    animation: slide 1s ease;
+}
+table {
+    width: 100%; max-width: 1000px; margin: auto;
+    border-collapse: collapse; background: white;
+    box-shadow: 0 5px 20px #777;
+}
+th, td {
+    border: 2px solid #34495e;
+    padding: 12px 6px; font-size: 14px;
+}
+thead th { background: #154360; color: white; }
+tbody tr:nth-child(odd) { background: #eaf2f8; }
+tbody tr:nth-child(even) { background: #d5f5e3; }
+tbody tr:hover { background: #fcf3cf; transition: .3s; }
+.lab { background: #ffccbc !important; color: #a93226; font-weight: bold; }
+.elective { background: #e8daef !important; color: #6c3483; font-weight: bold; }
+.lunch { background: #fdebd0 !important; color: #935116; font-weight: bold; }
+tfoot td { background: #154360; color: white; font-weight: bold; }
+td { transition: transform .3s; }
+td:hover { transform: scale(1.04); }
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slide {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@media(max-width:650px) {
+    body { padding: 5px; }
+    th, td { padding: 6px 3px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+<h1>CLASS TIME TABLE</h1>
+<h3>T. John Institute of Technology</h3>
+<p>Department: Computer Science Engineering | Semester: V</p>
+<table>
+<thead>
+<tr>
+    <th rowspan="2">Day</th>
+    <th colspan="5">Class Timings</th>
+</tr>
+<tr>
+    <th>9–10 AM</th><th>10–11 AM</th>
+    <th>11–12 PM</th><th>12–1 PM</th><th>2–4 PM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Monday</td><td>DBMS</td><td>CN</td>
+    <td colspan="2" class="lab">DBMS LAB</td><td>Maths</td>
+</tr>
+<tr>
+    <td>Tuesday</td><td>Java</td><td>OS</td>
+    <td>CN</td><td class="lunch">Lunch</td><td class="lab">Java LAB</td>
+</tr>
+<tr>
+    <td>Wednesday</td><td>Maths</td><td>DBMS</td>
+    <td colspan="2" class="elective">Elective</td><td>CN</td>
+</tr>
+<tr>
+    <td>Thursday</td><td>OS</td><td>Java</td>
+    <td>DBMS</td><td class="lunch">Lunch</td><td class="lab">CN LAB</td>
+</tr>
+<tr>
+    <td>Friday</td><td>CN</td><td>Maths</td>
+    <td>Java</td><td class="elective">Elective</td><td>Sports</td>
+</tr>
+<tr>
+    <td>Saturday</td><td colspan="2" class="lab">Project Lab</td>
+    <td>Seminar</td><td class="lunch">Lunch</td><td>Library</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+    <td colspan="6">End of Time Table | Academic Year 2026–27</td>
+</tr>
+</tfoot>
+</table>
+<p>🟧 Lab Hours &nbsp; 🟪 Elective Hours &nbsp; 🟨 Lunch Break</p>
+</body>
+</html>

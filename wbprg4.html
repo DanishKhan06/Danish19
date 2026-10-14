@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Registration Form</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #74ebd5, #acb6e5);
+    animation: bgmove 5s infinite alternate;
+}
+@keyframes bgmove {
+    from { background-position: left; }
+    to { background-position: right; }
+}
+h1 {
+    text-align: center; color: white;
+    background: #154360; padding: 18px;
+    border-radius: 12px;
+    animation: slide 1s ease;
+}
+@keyframes slide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+form {
+    max-width: 650px; margin: 20px auto;
+    background: white; padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px #555;
+    animation: appear 1.2s ease;
+}
+@keyframes appear {
+    from { opacity: 0; transform: scale(.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+table { width: 100%; border-spacing: 8px; }
+td { padding: 6px; color: #154360; font-weight: bold; }
+input, select, textarea {
+    width: 100%; padding: 9px;
+    border: 1px solid #85a5b8; border-radius: 6px;
+    background: #f0f8ff; transition: .3s;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none; border-color: #8e44ad;
+    box-shadow: 0 0 8px #8e44ad;
+    transform: scale(1.02);
+}
+input[type="radio"], input[type="checkbox"] { width: auto; }
+.buttons { text-align: center; }
+input[type="submit"], input[type="reset"] {
+    width: 120px; color: white; border: none;
+    background: #117864; cursor: pointer;
+    font-weight: bold; margin: 5px;
+}
+input[type="reset"] { background: #c0392b; }
+input[type="submit"]:hover, input[type="reset"]:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 12px #999;
+}
+h2 { text-align: center; color: #8e44ad; }
+@media(max-width: 500px) {
+    body { padding: 8px; }
+    form { padding: 10px; }
+    td { padding: 3px; }
+}
+</style>
+</head>
+<body>
+<h1>STUDENT REGISTRATION FORM</h1>
+<form>
+<h2>Register Now</h2>
+<table>
+<tr><td><label for="name">Full Name</label></td>
+<td><input id="name" type="text" placeholder="Enter name" required></td></tr>
+<tr><td><label for="email">Email</label></td>
+<td><input id="email" type="email" placeholder="Enter email" required></td></tr>
+<tr><td><label for="pass">Password</label></td>
+<td><input id="pass" type="password" placeholder="Password" required></td></tr>
+<tr><td><label for="phone">Phone</label></td>
+<td><input id="phone" type="tel" placeholder="Phone number"></td></tr>
+<tr><td><label for="dob">Date of Birth</label></td>
+<td><input id="dob" type="date"></td></tr>
+<tr><td>Gender</td><td>
+<input type="radio" name="gender" value="male"> Male
+<input type="radio" name="gender" value="female"> Female
+<input type="radio" name="gender" value="other"> Other
+</td></tr>
+<tr><td><label for="course">Course</label></td><td>
+<select id="course">
+<option value="">Select Course</option>
+<option>Computer Science</option><option>Information Science</option>
+<option>Electronics</option><option>Mechanical</option>
+</select></td></tr>
+<tr><td><label for="address">Address</label></td>
+<td><textarea id="address" rows="2" placeholder="Your address"></textarea></td></tr>
+<tr><td><label for="photo">Upload Photo</label></td>
+<td><input id="photo" type="file"></td></tr>
+<tr><td><label for="marks">Percentage</label></td>
+<td><input id="marks" type="number" min="0" max="100"></td></tr>
+<tr><td><label for="color">Favorite Color</label></td>
+<td><input id="color" type="color"></td></tr>
+<tr><td>Interests</td><td>
+<input type="checkbox" name="interest" value="sports"> Sports
+<input type="checkbox" name="interest" value="music"> Music
+<input type="checkbox" name="interest" value="coding"> Coding
+</td></tr>
+<tr><td colspan="2" class="buttons">
+<input type="submit" value="Register">
+<input type="reset" value="Clear">
+</td></tr>
+</table>
+</form>
+</body>
+</html>
