@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+<style>
+body{font-family:Arial;background:#dce3eb;display:flex;justify-content:center;align-items:center;height:100vh}
+.calculator{background:#222;padding:20px;border-radius:15px;width:300px;box-shadow:0 5px 15px #777}
+#display{width:100%;height:55px;box-sizing:border-box;margin-bottom:12px;font-size:26px;text-align:right;background:#eaffea;border:0;border-radius:6px;padding:8px}
+.buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+button{height:50px;font-size:18px;border:0;border-radius:7px;background:#444;color:white;cursor:pointer}
+button:hover{background:#666}
+.op{background:#ff9500}.clear{background:#e63946}.equal{background:#168aad}
+</style>
+</head>
+<body>
+<div class="calculator">
+  <input id="display" readonly placeholder="0">
+  <div class="buttons">
+    <button class="clear" onclick="clearDisplay()">AC</button>
+    <button onclick="root()">√</button>
+    <button onclick="square()">x²</button>
+    <button class="op" onclick="press('^')">xʸ</button>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button class="op" onclick="press('/')">÷</button>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button class="op" onclick="press('*')">×</button>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button class="op" onclick="press('-')">−</button>
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button class="op" onclick="press('%')">%</button>
+    <button class="op" onclick="press('+')">+</button>
+    <button class="equal" style="grid-column:span 4" onclick="calculate()">=</button>
+  </div>
+</div>
+<script>
+const display=document.getElementById('display');
+function press(v){display.value+=v;}
+function clearDisplay(){display.value='';}
+function calculate(){
+  try{
+    let s=display.value.replace(/\^/g,'**');
+    if(!s||! /^[0-9+\-*/%.() ]+$/.test(s.replace(/\*\*/g,''))) throw Error();
+    display.value=Function('"use strict";return ('+s+')')();
+    if(!Number.isFinite(Number(display.value))) throw Error();
+  }catch(e){display.value='Error';}
+}
+function root(){
+  let n=Number(display.value);
+  display.value=display.value!==''&&n>=0?Math.sqrt(n):'Error';
+}
+function square(){
+  let n=Number(display.value);
+  display.value=display.value!==''?n*n:'Error';
+}
+</script>
+</body>
+</html>
